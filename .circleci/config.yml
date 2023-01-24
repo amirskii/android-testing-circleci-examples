@@ -33,7 +33,7 @@ jobs:
         default: system-images;android-30;google_apis;x86
     executor:
       name: android/android-machine
-      resource-class: xlarge
+      resource-class: large
       tag: 2022.08.1
     steps:
       - checkout
@@ -110,7 +110,7 @@ workflows:
           executor:
             name: android/android-machine
             tag: 2022.08.1
-            resource-class: xlarge
+            resource-class: large
           filters:
             branches:
               ignore: main # regular commits
@@ -120,12 +120,6 @@ workflows:
             parameters:
               system-image:
                 - system-images;android-30;google_apis;x86
-                - system-images;android-29;google_apis;x86
-                - system-images;android-28;google_apis;x86
-                - system-images;android-27;google_apis;x86
-                - system-images;android-26;google_apis;x86
-                - system-images;android-25;google_apis;x86
-                - system-images;android-24;google_apis;x86
                 - system-images;android-23;google_apis;x86
           name: android-test-<<matrix.system-image>>
           filters:
